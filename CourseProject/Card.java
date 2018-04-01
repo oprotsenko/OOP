@@ -1,10 +1,12 @@
-package com.oprotsen.JavaOOP.CourseProject;
+package com.oprotsen.JavaOOP.courseProject;
 
 public class Card implements CardOrCash{
+    private String name;
     private long money;
 
-    public Card() {
-        this.money = getMoney();
+    public Card(String name, long money) {
+        this.name = name;
+        this.money = money;
     }
 
     @Override
@@ -15,6 +17,10 @@ public class Card implements CardOrCash{
     @Override
     public long setMoney(long money) {
         return this.money + money;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override

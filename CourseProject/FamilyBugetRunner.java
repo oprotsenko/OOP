@@ -1,40 +1,69 @@
-package com.oprotsen.JavaOOP.CourseProject;
+package com.oprotsen.JavaOOP.courseProject;
+
+import com.oprotsen.JavaOOP.courseProject.countMoney.CountMoney;
+import com.oprotsen.JavaOOP.courseProject.countMoney.PrintConsumptions;
 
 import java.time.LocalDate;
 
 public class FamilyBugetRunner {
     public static void main(String[] args) {
         Family family = new Family();
-        Card card = new Card();
-        Cash cash = new Cash();
-        Money money = new Money(card, cash);
+        Card olenaMCard = new Card("MasterCard", 1000);
+        Cash olenaCash = new Cash(2000);
+        Money olenaMoney = new Money(olenaMCard, olenaCash);
 
-        User olena = new User("olena",money);
+        User olena = new User("olena",olenaMoney);
 
-        TypeOfProduct advance = new TypeOfProduct("advance", 2299, LocalDate.now(), card);
+        Category work = new Category("work");
+        TypeOfProduct advance = new TypeOfProduct("advance", work, 3000, LocalDate.now(), olenaMCard);
         olena.addEarnings(advance);
-        TypeOfProduct salary = new TypeOfProduct("salary", 2599, LocalDate.now(), cash);
+        TypeOfProduct salary = new TypeOfProduct("salary", work,7000, LocalDate.now(), olenaCash);
         olena.addEarnings(salary);
-        TypeOfProduct advance1 = new TypeOfProduct("advance", 2299, LocalDate.now(), card);
-        olena.addEarnings(advance1);
+
+        Card evhenMCard = new Card("MC", 5000);
+        Cash evhenCash = new Cash(2000);
+        Money evhenMoney = new Money(evhenMCard, evhenCash);
+        User evhen = new User("evhen",evhenMoney);
+        TypeOfProduct advance1 = new TypeOfProduct("advance", work, 5000, LocalDate.now(), evhenMCard);
+        evhen.addEarnings(advance1);
 
         Category food = new Category("food");
-        TypeOfProduct aushan = new TypeOfProduct("aushan", 1000, LocalDate.now(), card);
-        olena.addConsumption(aushan);
-        food.addType(aushan);
-        TypeOfProduct silpo = new TypeOfProduct("silpo", 500, LocalDate.now(), cash);
-        olena.addConsumption(silpo);
+        Category closes = new Category("closes");
+        TypeOfProduct aushan = new TypeOfProduct("aushan",food,1000, LocalDate.now(), evhenMCard);
+        evhen.addConsumptions(aushan);
+       food.addType(aushan);
+        TypeOfProduct silpo = new TypeOfProduct("silpo", food,500, LocalDate.now(), olenaCash);
+        olena.addConsumptions(silpo);
         food.addType(silpo);
+        TypeOfProduct dress = new TypeOfProduct("dress", closes, 800, LocalDate.now(), olenaMCard);
+        olena.addConsumptions(dress);
+        closes.addType(dress);
+        TypeOfProduct novus = new TypeOfProduct("novus", food,500, LocalDate.now(), evhenCash);
+        evhen.addConsumptions(novus);
+        food.addType(novus);
 
         family.addUser(olena);
-
-        System.out.println(olena.getEarnings());
-        System.out.println(olena.setCash());
-        System.out.println(olena.setCard());
-        System.out.println(olena.calculateConsumptions());
-        System.out.println(olena.calculateEarnings());
+        family.addUser(evhen);
 
 
+        System.out.println(olenaMCard.setMoney(100));
+        CountMoney countMoney = new CountMoney(olena);
+        System.out.println(olena.getMoney());
+        olena.setCard();
+        olenaMCard.setMoney(100);
+        System.out.println(olena.getMoney());
+//        System.out.println(countMoney.setCash());
+//        System.out.println(countMoney.setCard());
+        System.out.println(countMoney.calculateConsumptions());
+        System.out.println(countMoney.calculateEarnings());
+        System.out.println(olena.getMoney());
+        PrintConsumptions printer = new PrintConsumptions(olena);
+        countMoney = new CountMoney(evhen);
+        System.out.println(countMoney.setCard());
+        System.out.println(countMoney.calculateConsumptions());
+
+        printer.printCalendar();
+        printer.printByCategory();
 
     }
 }

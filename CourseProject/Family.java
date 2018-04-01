@@ -1,4 +1,4 @@
-package com.oprotsen.JavaOOP.CourseProject;
+package com.oprotsen.JavaOOP.courseProject;
 
 import java.util.ArrayList;
 

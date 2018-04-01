@@ -1,15 +1,17 @@
-package com.oprotsen.JavaOOP.CourseProject;
+package com.oprotsen.JavaOOP.courseProject;
 
 import java.time.LocalDate;
 
 public class TypeOfProduct {
     private final String name;
+    private final Category category;
     private final long cost;
     private final LocalDate date;
     private final CardOrCash type;
 
-    public TypeOfProduct(String name, long cost, LocalDate date, CardOrCash type) {
+    public TypeOfProduct(String name, Category category, long cost, LocalDate date, CardOrCash type) {
         this.name = name;
+        this.category = category;
         this.cost = cost;
         this.date = date;
         this.type = type;
@@ -25,6 +27,10 @@ public class TypeOfProduct {
 
     public LocalDate getDate() {
         return date;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 
     public CardOrCash getType() {

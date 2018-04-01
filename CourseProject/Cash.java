@@ -1,10 +1,10 @@
-package com.oprotsen.JavaOOP.CourseProject;
+package com.oprotsen.JavaOOP.courseProject;
 
 public class Cash implements CardOrCash{
     private long money;
 
-    public Cash() {
-        this.money = getMoney();
+    public Cash(long money) {
+        this.money = money;
     }
 
     @Override

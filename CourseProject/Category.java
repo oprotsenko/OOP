@@ -1,4 +1,4 @@
-package com.oprotsen.JavaOOP.CourseProject;
+package com.oprotsen.JavaOOP.courseProject;
 
 import java.util.ArrayList;
 
@@ -12,6 +12,22 @@ public class Category {
 
     public void addType(TypeOfProduct type) {
         typeOfProducts.add(type);
+    }
+
+    public long getCost() {
+        long cost = 0;
+        for (TypeOfProduct elem: typeOfProducts) {
+            cost += elem.getCost();
+        }
+        return cost;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<TypeOfProduct> getTypeOfProducts() {
+        return typeOfProducts;
     }
 
     @Override

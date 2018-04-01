@@ -1,4 +1,4 @@
-package com.oprotsen.JavaOOP.CourseProject;
+package com.oprotsen.JavaOOP.courseProject;
 
 public interface CardOrCash {
     long setMoney(long money);
