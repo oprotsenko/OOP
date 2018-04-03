@@ -20,12 +20,16 @@ public class Card implements PaymentType {
         return money;
     }
 
-    @Override
-    public long setMoney(long money) {
-        return this.money += money;
-    }
-
     public CardType getCardType() {
         return cardType;
+    }
+
+    public void addMoney(long money) {
+        this.money += money;
+    }
+
+    @Override
+    public String toString() {
+        return "Card " + name + " " + money + " " + cardType;
     }
 }

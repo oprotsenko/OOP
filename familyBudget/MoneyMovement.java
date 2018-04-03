@@ -1,14 +1,18 @@
 package com.oprotsen.JavaOOP.familyBudget;
 
-public class MoneyMovements {
+import java.time.LocalDate;
+
+public class MoneyMovement {
     private final String name;
     private final long cost;
     private final PaymentType paymentType;
+    private final LocalDate localDate;
 
-    public MoneyMovements(String name, long cost, PaymentType paymentType) {
+    public MoneyMovement(String name, long cost, PaymentType paymentType, LocalDate localDate) {
         this.name = name;
         this.cost = cost;
         this.paymentType = paymentType;
+        this.localDate = localDate;
     }
 
     public String getName() {
@@ -21,5 +25,9 @@ public class MoneyMovements {
 
     public PaymentType getPaymentType() {
         return paymentType;
+    }
+
+    public LocalDate getLocalDate() {
+        return localDate;
     }
 }

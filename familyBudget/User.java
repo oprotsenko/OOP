@@ -1,35 +1,47 @@
 package com.oprotsen.JavaOOP.familyBudget;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class User {
+public class User implements Iterable<CategoryMovements>{
     private final String login;
     private Money money;
-    private List<CategoryOfMovements> earnings = new ArrayList<>();
-    private List<CategoryOfMovements> consumptions = new ArrayList<>();
+    private List<CategoryMovements> earnings = new ArrayList<>();
+    private List<CategoryMovements> consumptions = new ArrayList<>();
 
     public User(String login, Money money) {
         this.login = login;
         this.money = money;
     }
 
-    public void addEarnings(CategoryOfMovements movements) {
+    public void addEarnings(CategoryMovements movements) {
         earnings.add(movements);
-        for (CategoryOfMovements category: earnings) {
-            if (category.getMove().getPaymentType().equals(money.getCard()))
-            money.getCard().setMoney(category.getMove().getCost());
+    }
+
+    public void addConsumptions(CategoryMovements movements) {
+        consumptions.add(movements);
+    }
+
+    public void countEarnings() {
+        int move = 0;
+        for (CategoryMovements category: earnings) {
+            move++;
+            if (category.getMove(move).getPaymentType().equals(money.getCard(category.getMove(move).getPaymentType().getCardType())))
+            money.getCard(category.getMove(move).getPaymentType().getCardType()).addMoney(category.getMove(move).getCost());
             else
-                money.getCash().setMoney(category.getMove().getCost());
+                money.getCash().addMoney(category.getMove(move).getCost());
         }
     }
-    public void addConsumptions(CategoryOfMovements movements) {
-        consumptions.add(movements);
-        for (CategoryOfMovements category: consumptions) {
-            if (category.getMove().getPaymentType().equals(money.getCard()))
-                money.getCard().setMoney(-category.getMove().getCost());
+
+    public void countConsumptions() {
+        int move = 0;
+        for (CategoryMovements category: consumptions) {
+            move++;
+            if (category.getMove(move).getPaymentType().equals(money.getCard(category.getMove(move).getPaymentType().getCardType())))
+                money.getCard(category.getMove(move).getPaymentType().getCardType()).addMoney(-category.getMove(move).getCost());
             else
-                money.getCash().setMoney(-category.getMove().getCost());
+                money.getCash().addMoney(-category.getMove(move).getCost());
         }
     }
 
@@ -40,4 +52,18 @@ public class User {
     public Money getMoney() {
         return money;
     }
+
+    public List<CategoryMovements> getEarnings() {
+        return earnings;
+    }
+
+    public List<CategoryMovements> getConsumptions() {
+        return consumptions;
+    }
+
+    @Override
+    public Iterator<CategoryMovements> iterator() {
+        return consumptions.iterator();
+    }
 }
+

@@ -12,8 +12,16 @@ public class Cash implements PaymentType {
         return money;
     }
 
+    public void addMoney(long money) {
+        this.money += money;
+    }
+
+    public CardType getCardType() {
+        return null;
+    }
+
     @Override
-    public long setMoney(long money) {
-        return this.money += money;
+    public String toString() {
+        return "Cash " + money;
     }
 }
