@@ -1,70 +1,192 @@
 package com.oprotsen.JavaOOP.familyBudget;
 
 public class ToPrint implements Printer{
-    private final User user;
 
-    public ToPrint(User user) {
-        this.user = user;
+    private  final Family family;
+
+    public ToPrint(Family family) {
+        this.family = family;
     }
 
-    public void calendarViweE() {
+    @Override
+    public void calendarViewEarnings() {
         System.out.println("EARNINGS: ");
-        int i = 0;
-        for (CategoryMovements elem : user.getEarnings()) {
-            System.out.print(elem.getCategory(i).getLocalDate() + ": ");
-            System.out.print(elem.getCategory(i).getName() + " ");
-            if (elem.getCategory(i).getPaymentType().getCardType() != null)
-                System.out.print(elem.getCategory(i).getPaymentType().getCardType() + " ");
-            System.out.println(elem.getCategory(i).getCost() + " UAH");
-            i++;
+
+        for (User user: family) {
+            int i = 0;
+            for (CategoryMovements elem : user.getEarnings()) {
+                System.out.print(elem.getCategory(i).getLocalDate() + ": ");
+                System.out.print(elem.getCategory(i).getName() + " ");
+                if (elem.getCategory(i).getPaymentType().getCardType() != null)
+                    System.out.print(elem.getCategory(i).getPaymentType().getCardType() + " ");
+                System.out.println(elem.getCategory(i).getCost() + " UAH");
+                i++;
+            }
         }
     }
 
-    public void calendarViweC() {
-        System.out.println("CONSUMPTIONS: ");
-        int i = 0;
-        for (CategoryMovements elem : user.getConsumptions()) {
-            System.out.print(elem.getCategory(i).getLocalDate() + ": ");
-            System.out.print(elem.getCategory(i).getName() + " ");
-            if (elem.getCategory(i).getPaymentType().getCardType() != null)
-                System.out.print(elem.getCategory(i).getPaymentType().getCardType() + " ");
-            System.out.println(elem.getCategory(i).getCost() + " UAH");
-            i++;
-        }
-    }
-
-    public void categoryViweE() {
+    @Override
+    public void calendarViewEarnings(User user) {
         System.out.println("EARNINGS: ");
-        int i = 0;
-        for (CategoryMovements elem : user.getEarnings()) {
-            System.out.println(elem.getName() + " " + elem.getCategory(i).getLocalDate() + " " + elem.getCategory(i).getCost());
-            i++;
+
+        for (User userElem: family) {
+            if (userElem == user) {
+                int i = 0;
+                for (CategoryMovements elem : userElem.getEarnings()) {
+                    System.out.print(elem.getCategory(i).getLocalDate() + ": ");
+                    System.out.print(elem.getCategory(i).getName() + " ");
+                    if (elem.getCategory(i).getPaymentType().getCardType() != null)
+                        System.out.print(elem.getCategory(i).getPaymentType().getCardType() + " ");
+                    System.out.println(elem.getCategory(i).getCost() + " UAH");
+                    i++;
+                }
+            }
         }
     }
 
-    public void categoryViweC() {
+    @Override
+    public void calendarViewConsumptions() {
         System.out.println("CONSUMPTIONS: ");
-        int i = 0;
-        for (CategoryMovements elem : user.getConsumptions()) {
-            System.out.println(elem.getName() + " " + elem.getCategory(i).getLocalDate() + " " + elem.getCategory(i).getCost());
-            i++;
+        for (User user: family) {
+            int i = 0;
+            for (CategoryMovements elem : user.getConsumptions()) {
+                System.out.print(elem.getCategory(i).getLocalDate() + ": ");
+                System.out.print(elem.getCategory(i).getName() + " ");
+                if (elem.getCategory(i).getPaymentType().getCardType() != null)
+                    System.out.print(elem.getCategory(i).getPaymentType().getCardType() + " ");
+                System.out.println(elem.getCategory(i).getCost() + " UAH");
+                i++;
+            }
         }
     }
 
-    public void cardViwe() {
+    @Override
+    public void calendarViewConsumptions(User user) {
+        System.out.println("CONSUMPTIONS: ");
+        for (User userElem: family) {
+            if (userElem == user) {
+                int i = 0;
+                for (CategoryMovements elem : userElem.getConsumptions()) {
+                    System.out.print(elem.getCategory(i).getLocalDate() + ": ");
+                    System.out.print(elem.getCategory(i).getName() + " ");
+                    if (elem.getCategory(i).getPaymentType().getCardType() != null)
+                        System.out.print(elem.getCategory(i).getPaymentType().getCardType() + " ");
+                    System.out.println(elem.getCategory(i).getCost() + " UAH");
+                    i++;
+                }
+            }
+        }
+    }
+
+    @Override
+    public void categoryViewEarnings() {
         System.out.println("EARNINGS: ");
-        int e = 0;
-        for (CategoryMovements elem : user.getEarnings()) {
-            if (elem.getCategory(e).getPaymentType().getCardType() != null)
-            System.out.println(elem.getCategory(e).getPaymentType().getCardType() + " " + elem.getCategory(e).getCost());
-            e++;
+
+        for (User user: family) {
+            int i = 0;
+            for (CategoryMovements elem : user.getEarnings()) {
+                System.out.println(elem.getName() + " " + elem.getCategory(i).getLocalDate() + " " + elem.getCategory(i).getCost());
+                i++;
+            }
+        }
+    }
+
+    @Override
+    public void categoryViewEarnings(User user) {
+        System.out.println("EARNINGS: ");
+
+        for (User userElem: family) {
+            if (userElem == user) {
+                int i = 0;
+                for (CategoryMovements elem : userElem.getEarnings()) {
+                    System.out.println(elem.getName() + " " + elem.getCategory(i).getLocalDate() + " " + elem.getCategory(i).getCost());
+                    i++;
+                }
+            }
+        }
+    }
+
+    @Override
+    public void categoryViewConsumption() {
+        System.out.println("CONSUMPTIONS: ");
+
+        for (User user: family) {
+            int i = 0;
+            for (CategoryMovements elem : user.getConsumptions()) {
+                System.out.println(elem.getName() + " " + elem.getCategory(i).getLocalDate() + " " + elem.getCategory(i).getCost());
+                i++;
+            }
+        }
+    }
+
+    @Override
+    public void categoryViewConsumption(User user) {
+        System.out.println("CONSUMPTIONS: ");
+
+        for (User userElem: family) {
+            if (userElem == user) {
+                int i = 0;
+                for (CategoryMovements elem : userElem.getConsumptions()) {
+                    System.out.println(elem.getName() + " " + elem.getCategory(i).getLocalDate() + " " + elem.getCategory(i).getCost());
+                    i++;
+                }
+            }
+        }
+    }
+
+    @Override
+    public void cardView() {
+        System.out.println("EARNINGS: ");
+
+        for (User user : family) {
+            int e = 0;
+            for (CategoryMovements elem : user.getEarnings()) {
+                if (elem.getCategory(e).getPaymentType().getCardType() != null)
+                    System.out.println(user.getLogin() + " " + elem.getCategory(e).getPaymentType().getCardType()
+                            + " " + elem.getCategory(e).getCost());
+                e++;
+            }
         }
         System.out.println("CONSUMPTIONS: ");
-        int c = 0;
-        for (CategoryMovements elem : user.getConsumptions()) {
-            if (elem.getCategory(c).getPaymentType().getCardType() != null)
-                System.out.println(elem.getCategory(c).getPaymentType().getCardType() + " " + elem.getCategory(c).getCost());
-            c++;
+
+        for (User user : family) {
+            int c = 0;
+            for (CategoryMovements elem : user.getConsumptions()) {
+                if (elem.getCategory(c).getPaymentType().getCardType() != null)
+                    System.out.println(user.getLogin() + " " + elem.getCategory(c).getPaymentType().getCardType()
+                            + " " + elem.getCategory(c).getCost());
+                c++;
+            }
+        }
+    }
+
+    @Override
+    public void cardView(User user) {
+        System.out.println("EARNINGS: ");
+
+        for (User userElem: family) {
+            if (userElem == user) {
+                int e = 0;
+                for (CategoryMovements elem : userElem.getEarnings()) {
+                    if (elem.getCategory(e).getPaymentType().getCardType() != null)
+                        System.out.println(user.getLogin() + " " + elem.getCategory(e).getPaymentType().getCardType()
+                                + " " + elem.getCategory(e).getCost());
+                    e++;
+                }
+            }
+        }
+        System.out.println("CONSUMPTIONS: ");
+
+        for (User userElem: family) {
+            if (userElem == user) {
+                int c = 0;
+                for (CategoryMovements elem : userElem.getConsumptions()) {
+                    if (elem.getCategory(c).getPaymentType().getCardType() != null)
+                        System.out.println(user.getLogin() + " " + elem.getCategory(c).getPaymentType().getCardType()
+                                + " " + elem.getCategory(c).getCost());
+                    c++;
+                }
+            }
         }
     }
 }

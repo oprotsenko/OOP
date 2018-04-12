@@ -14,7 +14,7 @@ public class FamilyBudgetRunner {
         cards.add(visa);
 
         User olena = new User("Olena", new Money(wallet, cards));
-        ToPrint toPrint = new ToPrint(olena);
+        //ToPrint toPrint = new ToPrint(olena);
 //        System.out.println("All money " + olena.getMoney().getMoney());
 //        System.out.println("Cards " + olena.getMoney().getCardsMoney());
 //        System.out.println("Cash " + olena.getMoney().getCash().getMoney());
@@ -46,9 +46,9 @@ public class FamilyBudgetRunner {
         olena.countConsumptions();
 //
 //        System.out.println("All money " + olena.getMoney().getMoney());
-        System.out.println("Cards " + olena.getMoney().getCardsMoney());
-        System.out.println("Cash " + olena.getMoney().getCash().getMoney());
-        System.out.println();
+//        System.out.println("Cards " + olena.getMoney().getCardsMoney());
+//        System.out.println("Cash " + olena.getMoney().getCash().getMoney());
+//        System.out.println();
 
         Family family = new Family();
         family.addUser(olena);
@@ -61,7 +61,7 @@ public class FamilyBudgetRunner {
         cardsE.add(visaE);
 
         User evhen = new User("Evhen", new Money(walletE, cardsE));
-        ToPrint toPrintE = new ToPrint(evhen);
+        //ToPrint toPrintE = new ToPrint(evhen);
 //        System.out.println("EVHEN");
 //        System.out.println("All money " + evhen.getMoney().getMoney());
 //        System.out.println("Cards " + evhen.getMoney().getCardsMoney());
@@ -92,12 +92,16 @@ public class FamilyBudgetRunner {
         apartmentE.addCategory(new MoneyMovement("communal", 300, walletE, LocalDate.of(2018, 3, 4)));
         evhen.addConsumptions(apartmentE);
         evhen.countConsumptions();
-        System.out.println("Cash " + evhen.getMoney().getCash().getMoney());
-        System.out.println("Cards " + evhen.getMoney().getCardsMoney());
-        System.out.println();
+//        System.out.println("Cash " + evhen.getMoney().getCash().getMoney());
+//        System.out.println("Cards " + evhen.getMoney().getCardsMoney());
+//        System.out.println();
         family.addUser(evhen);
         //toPrintE.categoryViweC();
-        System.out.println(family.familyCash());
-        System.out.println(family.familyCard());
+        //family.countEarnings();
+//        System.out.println("family cash = " + family.familyCash());
+//        System.out.println("family cards = " + family.familyCard());
+        //family.calendarViweE();
+        Printer print = new ToPrint(family);
+        print.cardView(evhen);
     }
 }

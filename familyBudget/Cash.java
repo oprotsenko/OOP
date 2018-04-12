@@ -12,10 +12,12 @@ public class Cash implements PaymentType {
         return money;
     }
 
+    @Override
     public void addMoney(long money) {
         this.money += money;
     }
 
+    @Override
     public CardType getCardType() {
         return null;
     }

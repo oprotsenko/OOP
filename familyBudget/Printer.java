@@ -1,9 +1,14 @@
 package com.oprotsen.JavaOOP.familyBudget;
 
 public interface Printer {
-    void calendarViweE();
-    void calendarViweC();
-    void categoryViweE();
-    void categoryViweC();
-    void cardViwe();
+    void calendarViewEarnings();
+    void calendarViewConsumptions();
+    void categoryViewEarnings();
+    void categoryViewConsumption();
+    void cardView();
+    void calendarViewEarnings(User user);
+    void calendarViewConsumptions(User user);
+    void categoryViewEarnings(User user);
+    void categoryViewConsumption(User user);
+    void cardView(User user);
 }
