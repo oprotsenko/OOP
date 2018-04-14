@@ -30,4 +30,14 @@ public class MoneyMovement {
     public LocalDate getLocalDate() {
         return localDate;
     }
+
+    @Override
+    public String toString() {
+        return "MoneyMovement{" +
+                "name ='" + name + '\'' +
+                ", cost = " + cost + " UAH" +
+                ", paymentType = " + paymentType +
+                ", localDate = " + localDate +
+                '}';
+    }
 }

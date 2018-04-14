@@ -50,8 +50,8 @@ public class Money implements Iterable<Card>{
     @Override
     public String toString() {
         return "Money{" +
-                "cash=" + cash +
-                ", cards=" + cards +
+                "cash = " + cash +
+                ", cards = " + cards +
                 "";
     }
 }

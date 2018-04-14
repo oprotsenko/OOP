@@ -38,6 +38,10 @@ public class CategoryMovements implements Iterable<MoneyMovement> {
         return null;
     }
 
+    public List<MoneyMovement> getCategories() {
+        return categories;
+    }
+
     public String getName() {
         return name;
     }

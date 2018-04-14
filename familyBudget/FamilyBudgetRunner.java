@@ -102,6 +102,7 @@ public class FamilyBudgetRunner {
 //        System.out.println("family cards = " + family.familyCard());
         //family.calendarViweE();
         Printer print = new ToPrint(family);
-        print.cardView(evhen);
+       //print.calendarViewConsumptions();
+        print.calendarViewEarnings();
     }
 }

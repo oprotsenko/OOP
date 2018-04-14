@@ -15,11 +15,13 @@ public class ToPrint implements Printer{
         for (User user: family) {
             int i = 0;
             for (CategoryMovements elem : user.getEarnings()) {
-                System.out.print(elem.getCategory(i).getLocalDate() + ": ");
-                System.out.print(elem.getCategory(i).getName() + " ");
-                if (elem.getCategory(i).getPaymentType().getCardType() != null)
-                    System.out.print(elem.getCategory(i).getPaymentType().getCardType() + " ");
-                System.out.println(elem.getCategory(i).getCost() + " UAH");
+                elem.getCategories().sort(MoneyMovementComporator.byDate());
+                System.out.println(elem.getCategories());
+//                System.out.print(elem.getCategory(i).getLocalDate() + ": ");
+//                System.out.print(elem.getCategory(i).getName() + " ");
+//                if (elem.getCategory(i).getPaymentType().getCardType() != null)
+//                    System.out.print(elem.getCategory(i).getPaymentType().getCardType() + " ");
+//                System.out.println(elem.getCategory(i).getCost() + " UAH");
                 i++;
             }
         }
