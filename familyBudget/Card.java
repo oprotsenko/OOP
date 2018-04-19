@@ -20,7 +20,7 @@ public class Card implements PaymentType {
         return money;
     }
 
-    public CardType getCardType() {
+    public CardType getPaymentType() {
         return cardType;
     }
 

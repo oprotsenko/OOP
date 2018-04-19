@@ -18,7 +18,7 @@ public class Cash implements PaymentType {
     }
 
     @Override
-    public CardType getCardType() {
+    public CardType getPaymentType() {
         return CardType.CASH;
     }
 

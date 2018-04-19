@@ -2,11 +2,12 @@ package com.oprotsen.JavaOOP.familyBudget;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FamilyBudgetRunner {
     public static void main(String[] args) {
 
-        ArrayList<Card> cards = new ArrayList<>();
+        List<Card> cards = new ArrayList<>();
         Card mc = new Card("salary", 1000, CardType.MASTERCARD);
         Card visa = new Card("bonus", 1000, CardType.VISA);
         Cash wallet = new Cash(1000);
@@ -103,6 +104,13 @@ public class FamilyBudgetRunner {
         //family.calendarViweE();
         Printer print = new ToPrint(family);
        //print.calendarViewConsumptions();
-        print.calendarViewEarnings();
+       // print.calendarViewEarnings();
+
+        salary.sort(MoneyMovementComparator.byCost());
+        System.out.println(salary);
+
+//        System.out.println(consumptions.filter(MoneyMovementPredicate.containsName("silpo")));
+//        System.out.println(consumptions.filter(MoneyMovementPredicate.hasCostBetween(500, 1500)));
+//        System.out.println(consumptions.filter(MoneyMovementPredicate.hasPaymentType(CardType.VISA)));
     }
 }

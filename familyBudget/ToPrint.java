@@ -15,8 +15,8 @@ public class ToPrint implements Printer{
         for (User user: family) {
             int i = 0;
             for (CategoryMovements elem : user.getEarnings()) {
-                elem.getCategories().sort(MoneyMovementComporator.byDate());
-                System.out.println(elem.getCategories());
+                elem.getMovements().sort(MoneyMovementComparator.byDate());
+                System.out.println(elem.getMovements());
 //                System.out.print(elem.getCategory(i).getLocalDate() + ": ");
 //                System.out.print(elem.getCategory(i).getName() + " ");
 //                if (elem.getCategory(i).getPaymentType().getCardType() != null)
@@ -37,8 +37,8 @@ public class ToPrint implements Printer{
                 for (CategoryMovements elem : userElem.getEarnings()) {
                     System.out.print(elem.getCategory(i).getLocalDate() + ": ");
                     System.out.print(elem.getCategory(i).getName() + " ");
-                    if (elem.getCategory(i).getPaymentType().getCardType() != null)
-                        System.out.print(elem.getCategory(i).getPaymentType().getCardType() + " ");
+                    if (elem.getCategory(i).getPaymentType().getPaymentType() != null)
+                        System.out.print(elem.getCategory(i).getPaymentType().getPaymentType() + " ");
                     System.out.println(elem.getCategory(i).getCost() + " UAH");
                     i++;
                 }
@@ -54,8 +54,8 @@ public class ToPrint implements Printer{
             for (CategoryMovements elem : user.getConsumptions()) {
                 System.out.print(elem.getCategory(i).getLocalDate() + ": ");
                 System.out.print(elem.getCategory(i).getName() + " ");
-                if (elem.getCategory(i).getPaymentType().getCardType() != null)
-                    System.out.print(elem.getCategory(i).getPaymentType().getCardType() + " ");
+                if (elem.getCategory(i).getPaymentType().getPaymentType() != null)
+                    System.out.print(elem.getCategory(i).getPaymentType().getPaymentType() + " ");
                 System.out.println(elem.getCategory(i).getCost() + " UAH");
                 i++;
             }
@@ -71,8 +71,8 @@ public class ToPrint implements Printer{
                 for (CategoryMovements elem : userElem.getConsumptions()) {
                     System.out.print(elem.getCategory(i).getLocalDate() + ": ");
                     System.out.print(elem.getCategory(i).getName() + " ");
-                    if (elem.getCategory(i).getPaymentType().getCardType() != null)
-                        System.out.print(elem.getCategory(i).getPaymentType().getCardType() + " ");
+                    if (elem.getCategory(i).getPaymentType().getPaymentType() != null)
+                        System.out.print(elem.getCategory(i).getPaymentType().getPaymentType() + " ");
                     System.out.println(elem.getCategory(i).getCost() + " UAH");
                     i++;
                 }
@@ -143,8 +143,8 @@ public class ToPrint implements Printer{
         for (User user : family) {
             int e = 0;
             for (CategoryMovements elem : user.getEarnings()) {
-                if (elem.getCategory(e).getPaymentType().getCardType() != null)
-                    System.out.println(user.getLogin() + " " + elem.getCategory(e).getPaymentType().getCardType()
+                if (elem.getCategory(e).getPaymentType().getPaymentType() != null)
+                    System.out.println(user.getLogin() + " " + elem.getCategory(e).getPaymentType().getPaymentType()
                             + " " + elem.getCategory(e).getCost());
                 e++;
             }
@@ -154,8 +154,8 @@ public class ToPrint implements Printer{
         for (User user : family) {
             int c = 0;
             for (CategoryMovements elem : user.getConsumptions()) {
-                if (elem.getCategory(c).getPaymentType().getCardType() != null)
-                    System.out.println(user.getLogin() + " " + elem.getCategory(c).getPaymentType().getCardType()
+                if (elem.getCategory(c).getPaymentType().getPaymentType() != null)
+                    System.out.println(user.getLogin() + " " + elem.getCategory(c).getPaymentType().getPaymentType()
                             + " " + elem.getCategory(c).getCost());
                 c++;
             }
@@ -170,8 +170,8 @@ public class ToPrint implements Printer{
             if (userElem == user) {
                 int e = 0;
                 for (CategoryMovements elem : userElem.getEarnings()) {
-                    if (elem.getCategory(e).getPaymentType().getCardType() != null)
-                        System.out.println(user.getLogin() + " " + elem.getCategory(e).getPaymentType().getCardType()
+                    if (elem.getCategory(e).getPaymentType().getPaymentType() != null)
+                        System.out.println(user.getLogin() + " " + elem.getCategory(e).getPaymentType().getPaymentType()
                                 + " " + elem.getCategory(e).getCost());
                     e++;
                 }
@@ -183,8 +183,8 @@ public class ToPrint implements Printer{
             if (userElem == user) {
                 int c = 0;
                 for (CategoryMovements elem : userElem.getConsumptions()) {
-                    if (elem.getCategory(c).getPaymentType().getCardType() != null)
-                        System.out.println(user.getLogin() + " " + elem.getCategory(c).getPaymentType().getCardType()
+                    if (elem.getCategory(c).getPaymentType().getPaymentType() != null)
+                        System.out.println(user.getLogin() + " " + elem.getCategory(c).getPaymentType().getPaymentType()
                                 + " " + elem.getCategory(c).getCost());
                     c++;
                 }

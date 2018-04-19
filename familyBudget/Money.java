@@ -22,7 +22,7 @@ public class Money implements Iterable<Card>{
 
     public Card getCard(CardType type) {
         for (Card elem : cards) {
-            if (elem.getCardType().equals(type))
+            if (elem.getPaymentType().equals(type))
             return elem;
         }
         return null;

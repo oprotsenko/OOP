@@ -27,8 +27,8 @@ public class User implements Iterable<CategoryMovements>{
         int move = 0;
         for (CategoryMovements category: earnings) {
             move++;
-            if (category.getMove(move).getPaymentType().equals(money.getCard(category.getMove(move).getPaymentType().getCardType())))
-            money.getCard(category.getMove(move).getPaymentType().getCardType()).addMoney(category.getMove(move).getCost());
+            if (category.getMove(move).getPaymentType().equals(money.getCard(category.getMove(move).getPaymentType().getPaymentType())))
+            money.getCard(category.getMove(move).getPaymentType().getPaymentType()).addMoney(category.getMove(move).getCost());
             else
                 money.getCash().addMoney(category.getMove(move).getCost());
         }
@@ -38,8 +38,8 @@ public class User implements Iterable<CategoryMovements>{
         int move = 0;
         for (CategoryMovements category: consumptions) {
             move++;
-            if (category.getMove(move).getPaymentType().equals(money.getCard(category.getMove(move).getPaymentType().getCardType())))
-                money.getCard(category.getMove(move).getPaymentType().getCardType()).addMoney(-category.getMove(move).getCost());
+            if (category.getMove(move).getPaymentType().equals(money.getCard(category.getMove(move).getPaymentType().getPaymentType())))
+                money.getCard(category.getMove(move).getPaymentType().getPaymentType()).addMoney(-category.getMove(move).getCost());
             else
                 money.getCash().addMoney(-category.getMove(move).getCost());
         }
