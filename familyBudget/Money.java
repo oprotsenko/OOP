@@ -4,8 +4,8 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Money implements Iterable<Card>{
-    private Cash cash;
-    private List<Card> cards;
+    private final Cash cash;
+    private final List<Card> cards;
 
     public Money(Cash cash, List<Card> cards) {
         this.cash = cash;
@@ -20,6 +20,9 @@ public class Money implements Iterable<Card>{
         return cash;
     }
 
+    /**
+     * Method can return null
+     */
     public Card getCard(CardType type) {
         for (Card elem : cards) {
             if (elem.getPaymentType().equals(type))

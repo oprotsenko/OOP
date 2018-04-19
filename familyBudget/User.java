@@ -6,9 +6,9 @@ import java.util.List;
 
 public class User implements Iterable<CategoryMovements>{
     private final String login;
-    private Money money;
-    private List<CategoryMovements> earnings = new ArrayList<>();
-    private List<CategoryMovements> consumptions = new ArrayList<>();
+    private final Money money;
+    private final List<CategoryMovements> earnings = new ArrayList<>();
+    private final List<CategoryMovements> consumptions = new ArrayList<>();
 
     public User(String login, Money money) {
         this.login = login;

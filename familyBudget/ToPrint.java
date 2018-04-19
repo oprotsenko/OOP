@@ -2,7 +2,7 @@ package com.oprotsen.JavaOOP.familyBudget;
 
 public class ToPrint implements Printer{
 
-    private  final Family family;
+    private final Family family;
 
     public ToPrint(Family family) {
         this.family = family;

@@ -2,7 +2,7 @@ package com.oprotsen.JavaOOP.familyBudget;
 
 public class Card implements PaymentType {
     private final String name;
-    private  long money;
+    private long money;
     private final CardType cardType;
 
     public Card(String name, long money, CardType cardType) {

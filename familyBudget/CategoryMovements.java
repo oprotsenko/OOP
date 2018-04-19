@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 
 public class CategoryMovements implements Iterable<MoneyMovement> {
     private final String name;
-    private List<MoneyMovement> movements = new ArrayList<>();
+    private final List<MoneyMovement> movements = new ArrayList<>();
 
     public CategoryMovements(String name) {
         this.name = name;
