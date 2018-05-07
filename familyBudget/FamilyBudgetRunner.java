@@ -22,11 +22,26 @@ public class FamilyBudgetRunner {
 //        System.out.println();
 
         CategoryMovements salary = new CategoryMovements("salary");
-        salary.addCategory(new MoneyMovement("bonuses", 2000, mc, LocalDate.of(2018, 1, 15)));
+        salary.addCategory(new MoneyMovement.Builder()
+                .name("bonuses")
+                .cost(2000)
+                .paymentType(mc)
+                .localDate(LocalDate.of(2018, 1, 15))
+        .build());
         olena.addEarnings(salary);
-        salary.addCategory(new MoneyMovement("salary", 5000, wallet, LocalDate.of(2018, 2, 1)));
+        salary.addCategory(new MoneyMovement.Builder()
+                .name("salary")
+                .cost(5000)
+                .paymentType(wallet)
+                .localDate(LocalDate.of(2018, 2, 1))
+        .build());
         olena.addEarnings(salary);
-        salary.addCategory(new MoneyMovement("salary", 5000, visa, LocalDate.of(2018, 3, 1)));
+        salary.addCategory(new MoneyMovement.Builder()
+                .name("salary")
+                .cost(5000)
+                .paymentType(visa)
+                .localDate(LocalDate.of(2018, 3, 1))
+        .build());
         olena.addEarnings(salary);
 
         olena.countEarnings();
@@ -36,15 +51,15 @@ public class FamilyBudgetRunner {
 //        System.out.println("Cash " + olena.getMoney().getCash().getMoney());
 //        System.out.println();
 
-        CategoryMovements consumptions = new CategoryMovements("food");
-        CategoryMovements apartment = new CategoryMovements("apartment");
-        consumptions.addCategory(new MoneyMovement("aushan", 500, visa, LocalDate.of(2018, 2, 5)));
-        olena.addConsumptions(consumptions);
-        consumptions.addCategory(new MoneyMovement("silpo", 500, wallet, LocalDate.of(2018, 2, 25)));
-        olena.addConsumptions(consumptions);
-        apartment.addCategory(new MoneyMovement("communal", 200, wallet, LocalDate.of(2018, 3, 4)));
-        olena.addConsumptions(apartment);
-        olena.countConsumptions();
+//        CategoryMovements consumptions = new CategoryMovements("food");
+//        CategoryMovements apartment = new CategoryMovements("apartment");
+//        consumptions.addCategory(new MoneyMovement("aushan", 500, visa, LocalDate.of(2018, 2, 5)));
+//        olena.addConsumptions(consumptions);
+//        consumptions.addCategory(new MoneyMovement("silpo", 500, wallet, LocalDate.of(2018, 2, 25)));
+//        olena.addConsumptions(consumptions);
+//        apartment.addCategory(new MoneyMovement("communal", 200, wallet, LocalDate.of(2018, 3, 4)));
+//        olena.addConsumptions(apartment);
+//        olena.countConsumptions();
 //
 //        System.out.println("All money " + olena.getMoney().getMoney());
 //        System.out.println("Cards " + olena.getMoney().getCardsMoney());
@@ -69,13 +84,13 @@ public class FamilyBudgetRunner {
 //        System.out.println("Cash " + evhen.getMoney().getCash().getMoney());
 //        System.out.println();
 
-        CategoryMovements salaryE = new CategoryMovements("salary");
-        salaryE.addCategory(new MoneyMovement("bonuses", 1000, mcE, LocalDate.of(2018, 1, 15)));
-        evhen.addEarnings(salaryE);
-        salaryE.addCategory(new MoneyMovement("salary", 10000, walletE, LocalDate.of(2018, 2, 1)));
-        evhen.addEarnings(salaryE);
-        salaryE.addCategory(new MoneyMovement("salary", 4000, visaE, LocalDate.of(2018, 3, 1)));
-        evhen.addEarnings(salaryE);
+//        CategoryMovements salaryE = new CategoryMovements("salary");
+//        salaryE.addCategory(new MoneyMovement("bonuses", 1000, mcE, LocalDate.of(2018, 1, 15)));
+//        evhen.addEarnings(salaryE);
+//        salaryE.addCategory(new MoneyMovement("salary", 10000, walletE, LocalDate.of(2018, 2, 1)));
+//        evhen.addEarnings(salaryE);
+//        salaryE.addCategory(new MoneyMovement("salary", 4000, visaE, LocalDate.of(2018, 3, 1)));
+//        evhen.addEarnings(salaryE);
 
         evhen.countEarnings();
 
@@ -84,15 +99,15 @@ public class FamilyBudgetRunner {
  //       System.out.println("Cash " + evhen.getMoney().getCash().getMoney());
 //        System.out.println();
 
-        CategoryMovements consumptionsE = new CategoryMovements("food");
-        CategoryMovements apartmentE = new CategoryMovements("apartment");
-        consumptionsE.addCategory(new MoneyMovement("aushan", 800, visaE, LocalDate.of(2018, 2, 5)));
-        evhen.addConsumptions(consumptionsE);
-        consumptionsE.addCategory(new MoneyMovement("silpo", 700, walletE, LocalDate.of(2018, 2, 25)));
-        evhen.addConsumptions(consumptionsE);
-        apartmentE.addCategory(new MoneyMovement("communal", 300, walletE, LocalDate.of(2018, 3, 4)));
-        evhen.addConsumptions(apartmentE);
-        evhen.countConsumptions();
+//        CategoryMovements consumptionsE = new CategoryMovements("food");
+//        CategoryMovements apartmentE = new CategoryMovements("apartment");
+//        consumptionsE.addCategory(new MoneyMovement("aushan", 800, visaE, LocalDate.of(2018, 2, 5)));
+//        evhen.addConsumptions(consumptionsE);
+//        consumptionsE.addCategory(new MoneyMovement("silpo", 700, walletE, LocalDate.of(2018, 2, 25)));
+//        evhen.addConsumptions(consumptionsE);
+//        apartmentE.addCategory(new MoneyMovement("communal", 300, walletE, LocalDate.of(2018, 3, 4)));
+//        evhen.addConsumptions(apartmentE);
+//        evhen.countConsumptions();
 //        System.out.println("Cash " + evhen.getMoney().getCash().getMoney());
 //        System.out.println("Cards " + evhen.getMoney().getCardsMoney());
 //        System.out.println();
@@ -109,8 +124,8 @@ public class FamilyBudgetRunner {
         salary.sort(MoneyMovementComparator.byCost());
         System.out.println(salary);
 
-//        System.out.println(consumptions.filter(MoneyMovementPredicate.containsName("silpo")));
-//        System.out.println(consumptions.filter(MoneyMovementPredicate.hasCostBetween(500, 1500)));
-//        System.out.println(consumptions.filter(MoneyMovementPredicate.hasPaymentType(CardType.VISA)));
+//        System.out.println(budgetIN.csv.filter(MoneyMovementPredicate.containsName("silpo")));
+//        System.out.println(budgetIN.csv.filter(MoneyMovementPredicate.hasCostBetween(500, 1500)));
+//        System.out.println(budgetIN.csv.filter(MoneyMovementPredicate.hasPaymentType(CardType.VISA)));
     }
 }

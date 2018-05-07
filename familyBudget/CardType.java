@@ -1,6 +1,6 @@
 package com.oprotsen.JavaOOP.familyBudget;
 
-public enum  CardType {
+public enum CardType {
     MASTERCARD,
     VISA,
     CASH
